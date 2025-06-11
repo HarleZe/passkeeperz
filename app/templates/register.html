@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription - PassKeeperZ</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #2c3e50;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ecf0f1;
+            transform: scale(1.03);
+        }
+
+        .bottom-link {
+            margin-top: 1em;
+            text-align: center;
+        }
+
+        .bottom-link a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .flash {
+            color: #f9c74f;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Créer un compte PassKeeperZ</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+            <div class="flash">{{ message }}</div>
+          {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="email">Adresse e-mail</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">S'inscrire</button>
+
+            <div class="bottom-link">
+                <p>Déjà un compte ? <a href="{{ url_for('main.login') }}">Se connecter</a></p>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        © 2025 – PassKeeperZ par Louis Constant & Lewis Guillerm
+    </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>PassKeeperZ - Gestionnaire de mots de passe</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            text-align: center;
+       }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.2em;
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 2em;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ecf0f1;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+</style>
+
+</head>
+<body>
+    <main>
+        <h1>🔐 PassKeeperZ</h1>
+        <p>Votre gestionnaire de mots de passe sécurisé, chiffré, accessible partout.</p>
+
+        <div class="button-container">
+            <a href="{{ url_for('main.register') }}" class="button">Créer un compte</a>
+            <a href="{{ url_for('main.login') }}" class="button">Se connecter</a>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 – Développé par Louis Constant & Lewis Guillerm
+    </footer>
+</body>
+</html>
